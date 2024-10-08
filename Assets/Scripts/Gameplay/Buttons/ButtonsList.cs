@@ -1,34 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.PackageManager;
+using Button;
 using UnityEngine;
-
 
 public class ButtonList : MonoBehaviour
 {
-    Dictionary<int, KeyCode> buttons = new Dictionary<int, KeyCode>();
-
-    public Dictionary<int, KeyCode> Buttons { get => buttons; private set => buttons = value; }
+    List<KeyCode> buttons = new List<KeyCode>();
+    public List<KeyCode> Buttons { get => buttons; private set => buttons = value; }
+    
 
     private void Start() {
         AddButtons();
-        
+        ButtonRandomiser.RandomiseKeys(Buttons);
     }
 
-    private void AddButtons() { //Read list of valid buttons from file
-        TextAsset buttonsListTextAsset = Resources.Load<TextAsset>("Valid_Buttons");
+    // Add buttons to the list from the text file
+    private void AddButtons() { 
+        TextAsset buttonsListTextAsset = Resources.Load<TextAsset>("Valid_Buttons"); // Load the text file
         string ButtonList = buttonsListTextAsset.text;
 
         for (int i = 0; i < ButtonList.Length; i++) {
             try {
-                Buttons.Add(i, (KeyCode)System.Enum.Parse(typeof(KeyCode), ButtonList[i].ToString()));
-                Debug.Log("Successfully added" + ButtonList[i].ToString());
+                KeyCode keyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), ButtonList[i].ToString());
+                Buttons.Add(keyCode);
+
+                Debug.Log("Successfully added " + ButtonList[i].ToString());
             }
             catch {
-                Debug.LogError("Error loading " + ButtonList[i] + "Is Button invalid type?");
+                Debug.LogError("Error loading " + ButtonList[i] + ". Is the Button an invalid type?");
             }
         }
     }
 }
-
-
