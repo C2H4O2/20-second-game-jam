@@ -8,6 +8,8 @@ public class ButtonList : MonoBehaviour
 {
     Dictionary<int, KeyCode> buttons = new Dictionary<int, KeyCode>();
 
+    public Dictionary<int, KeyCode> Buttons { get => buttons; private set => buttons = value; }
+
     private void Start() {
         AddButtons();
         
@@ -19,7 +21,7 @@ public class ButtonList : MonoBehaviour
 
         for (int i = 0; i < ButtonList.Length; i++) {
             try {
-                buttons.Add(i, (KeyCode)System.Enum.Parse(typeof(KeyCode), ButtonList[i].ToString()));
+                Buttons.Add(i, (KeyCode)System.Enum.Parse(typeof(KeyCode), ButtonList[i].ToString()));
                 Debug.Log("Successfully added" + ButtonList[i].ToString());
             }
             catch {
@@ -27,7 +29,6 @@ public class ButtonList : MonoBehaviour
             }
         }
     }
-
 }
 
 
