@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using Movement;
+using NUnit.Framework;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private InputDetector inputDetector;
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float fallForce;
     [SerializeField] private float minFallSpeed;
-    [SerializeField] private ButtonList buttonList;
     
     private bool facingRight;
 
@@ -22,10 +23,7 @@ public class Player : MonoBehaviour
 
     private void Awake() {
         rbody = GetComponent<Rigidbody2D>();
-        buttonList = FindAnyObjectByType<ButtonList>();
-    }
-    private void Update() {
-
+        inputDetector = FindAnyObjectByType<InputDetector>();
     }
 
     private bool IsGrounded() {
@@ -33,13 +31,17 @@ public class Player : MonoBehaviour
     }
     
     private void FixedUpdate() {
-        /*
-        if() //able to walk
-        HorizontalMovement.Walk(Rbody, true, speed); //Handle the movement direction when doing button
-        if() //able to jump
-
-        if() //able to fall
-        VerticalMovement.HandleVerticalMovement(rbody, IsGrounded(), jumpForce, fallForce, minFallSpeed);
-        */
+        if(inputDetector.Movement().x != 0) {
+            HorizontalMovement.Walk(rbody, inputDetector.Movement().x, speed);
+            Debug.Log("Walk");
+        }
+        if(inputDetector.Movement().y > 0 && IsGrounded()) {
+            VerticalMovement.Jump(rbody, jumpForce);
+            Debug.Log("Jump");
+        }
+        if(inputDetector.Movement().y < 0 && !IsGrounded()) {
+            VerticalMovement.Fall(rbody, fallForce, minFallSpeed);
+            Debug.Log("Fall");
+        }
     }
 }

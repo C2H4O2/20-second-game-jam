@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 namespace Button
@@ -8,8 +7,7 @@ namespace Button
     {
         public static List<KeyCode> RandomiseKeys(List<KeyCode> keyCodes) {
             for (int i = 0; i < keyCodes.Count; i++) {
-                Unity.Mathematics.Random random = new Unity.Mathematics.Random();
-                int randomInt = random.NextInt(0,keyCodes.Count);
+                int randomInt = Random.Range(0,keyCodes.Count);
                 KeyCode key = keyCodes[i];
                 keyCodes[i] = keyCodes[randomInt];
                 keyCodes[randomInt] = key;

@@ -5,16 +5,39 @@ using UnityEngine;
 
 public class ButtonList : MonoBehaviour
 {
-    List<KeyCode> buttons = new List<KeyCode>();
+    private List<KeyCode> buttons = new List<KeyCode>();
     public List<KeyCode> Buttons { get => buttons; private set => buttons = value; }
-    
+
+    private KeyCode leftKey;
+    private KeyCode rightKey;
+    private KeyCode upKey;
+    private KeyCode downKey;
+    private KeyCode abilityKey;
+
+    public KeyCode LeftKey { get => leftKey; private set => leftKey = value; }
+    public KeyCode RightKey { get => rightKey; private set => rightKey = value; }
+    public KeyCode UpKey { get => upKey; private set => upKey = value; }
+    public KeyCode DownKey { get => downKey; private set => downKey = value; }
+    public KeyCode AbilityKey { get => abilityKey; private set => abilityKey = value; }
 
     private void Start() {
         AddButtons();
         ButtonRandomiser.RandomiseKeys(Buttons);
+   
+        LeftKey = buttons[0];
+        RightKey = buttons[1];
+        UpKey = buttons[2];
+        DownKey = buttons[3];
+        AbilityKey = buttons[4];
+
+        Debug.Log("Left Key assigned to: " + LeftKey);
+        Debug.Log("Right Key assigned to: " + RightKey);
+        Debug.Log("Up Key assigned to: " + UpKey);
+        Debug.Log("Down Key assigned to: " + DownKey);
+        Debug.Log("Ability Key assigned to: " + AbilityKey);
     }
 
-    // Add buttons to the list from the text file
+
     private void AddButtons() { 
         TextAsset buttonsListTextAsset = Resources.Load<TextAsset>("Valid_Buttons"); // Load the text file
         string ButtonList = buttonsListTextAsset.text;
@@ -24,10 +47,10 @@ public class ButtonList : MonoBehaviour
                 KeyCode keyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), ButtonList[i].ToString());
                 Buttons.Add(keyCode);
 
-                Debug.Log("Successfully added " + ButtonList[i].ToString());
+                Debug.Log("Successfully added: " + ButtonList[i].ToString());
             }
             catch {
-                Debug.LogError("Error loading " + ButtonList[i] + ". Is the Button an invalid type?");
+                Debug.LogError("Error loading " + ButtonList[i] + ". Is the button an invalid type?");
             }
         }
     }

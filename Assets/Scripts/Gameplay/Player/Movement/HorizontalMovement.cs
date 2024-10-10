@@ -10,10 +10,9 @@ namespace Movement
             controller.Move(move * Time.deltaTime * playerSpeed);
         }
         */
-        public static void Walk(Rigidbody2D rbody, bool direction, float speed)
+        public static void Walk(Rigidbody2D rbody, float direction, float speed)
         {
-            int sign = direction ? 1:-1; 
-            rbody.linearVelocity = new Vector2(sign * speed, rbody.linearVelocity.y);
+            rbody.linearVelocity = new Vector2(direction * speed, rbody.linearVelocity.y);
         }
     }
 }
