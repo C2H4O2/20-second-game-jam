@@ -1,26 +1,47 @@
-using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using Movement;
+using NUnit.Framework;
+using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private CharacterController controller;
-    private Vector3 playerVelocity;
-    [SerializeField] private float playerSpeed = 2.0f;
-    [SerializeField] private float jumpHeight = 1.0f;
-    [SerializeField] private float gravityValue = -9.81f;
-    [SerializeField] private bool groundedPlayer;
+    [SerializeField] private InputDetector inputDetector;
+    [SerializeField] private float speed;
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float fallForce;
+    [SerializeField] private float minFallSpeed;
+    
+    private bool facingRight;
 
-    public CharacterController Controller { get => controller; private set => controller = value; }
-    public float PlayerSpeed { get => playerSpeed; private set => playerSpeed = value; }
-    public float JumpHeight { get => jumpHeight; private set => jumpHeight = value; }
-    public float GravityValue { get => gravityValue; private set => gravityValue = value; }
 
-    private void Start() {
-        Controller = gameObject.AddComponent<CharacterController>();
+    private Rigidbody2D rbody;
+    private Vector2 moveInput;
+
+    public bool FacingRight { get => facingRight; }
+    public Rigidbody2D Rbody { get => rbody; }
+
+    private void Awake() {
+        rbody = GetComponent<Rigidbody2D>();
+        inputDetector = FindAnyObjectByType<InputDetector>();
     }
 
-    private void Update() {
-        HorizontalMovement.Walk(Controller, PlayerSpeed);
-        VerticalMovement.Jump(Controller, playerVelocity, jumpHeight, gravityValue, groundedPlayer);
+    private bool IsGrounded() {
+        return GetComponent<Rigidbody2D>().linearVelocity.y == 0;
+    }
+    
+    private void FixedUpdate() {
+        if(inputDetector.Movement().x != 0) {
+            HorizontalMovement.Walk(rbody, inputDetector.Movement().x, speed);
+            Debug.Log("Walk");
+        }
+        if(inputDetector.Movement().y > 0 && IsGrounded()) {
+            VerticalMovement.Jump(rbody, jumpForce);
+            Debug.Log("Jump");
+        }
+        if(inputDetector.Movement().y < 0 && !IsGrounded()) {
+            VerticalMovement.Fall(rbody, fallForce, minFallSpeed);
+            Debug.Log("Fall");
+        }
     }
 }
