@@ -1,26 +1,45 @@
-using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using Movement;
+using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private CharacterController controller;
-    private Vector3 playerVelocity;
-    [SerializeField] private float playerSpeed = 2.0f;
-    [SerializeField] private float jumpHeight = 1.0f;
-    [SerializeField] private float gravityValue = -9.81f;
-    [SerializeField] private bool groundedPlayer;
+    [SerializeField] private float speed;
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float fallForce;
+    [SerializeField] private float minFallSpeed;
+    [SerializeField] private ButtonList buttonList;
+    
+    private bool facingRight;
 
-    public CharacterController Controller { get => controller; private set => controller = value; }
-    public float PlayerSpeed { get => playerSpeed; private set => playerSpeed = value; }
-    public float JumpHeight { get => jumpHeight; private set => jumpHeight = value; }
-    public float GravityValue { get => gravityValue; private set => gravityValue = value; }
 
-    private void Start() {
-        Controller = gameObject.AddComponent<CharacterController>();
+    private Rigidbody2D rbody;
+    private Vector2 moveInput;
+
+    public bool FacingRight { get => facingRight; }
+    public Rigidbody2D Rbody { get => rbody; }
+
+    private void Awake() {
+        rbody = GetComponent<Rigidbody2D>();
+        buttonList = FindAnyObjectByType<ButtonList>();
+    }
+    private void Update() {
+
     }
 
-    private void Update() {
-        HorizontalMovement.Walk(Controller, PlayerSpeed);
-        VerticalMovement.Jump(Controller, playerVelocity, jumpHeight, gravityValue, groundedPlayer);
+    private bool IsGrounded() {
+        return GetComponent<Rigidbody2D>().linearVelocity.y == 0;
+    }
+    
+    private void FixedUpdate() {
+        /*
+        if() //able to walk
+        HorizontalMovement.Walk(Rbody, true, speed); //Handle the movement direction when doing button
+        if() //able to jump
+
+        if() //able to fall
+        VerticalMovement.HandleVerticalMovement(rbody, IsGrounded(), jumpForce, fallForce, minFallSpeed);
+        */
     }
 }
