@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private float fallForce;
     [SerializeField] private float minFallSpeed;
+    [SerializeField] private float velPower;
+    [SerializeField] private float acceleration;
+    [SerializeField] private float decceleration;
     
     private bool facingRight;
 
@@ -32,16 +35,13 @@ public class Player : MonoBehaviour
     
     private void FixedUpdate() {
         if(inputDetector.Movement().x != 0) {
-            HorizontalMovement.Walk(rbody, inputDetector.Movement().x, speed);
-            Debug.Log("Walk");
+            HorizontalMovement.Run(rbody, inputDetector.Movement().x, speed, acceleration, decceleration, velPower);
         }
         if(inputDetector.Movement().y > 0 && IsGrounded()) {
             VerticalMovement.Jump(rbody, jumpForce);
-            Debug.Log("Jump");
         }
         if(inputDetector.Movement().y < 0 && !IsGrounded()) {
             VerticalMovement.Fall(rbody, fallForce, minFallSpeed);
-            Debug.Log("Fall");
         }
     }
 }
