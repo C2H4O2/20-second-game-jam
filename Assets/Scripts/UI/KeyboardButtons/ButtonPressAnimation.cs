@@ -24,7 +24,7 @@ public class ButtonPressAnimation : MonoBehaviour
         pressedPos = keyText.rectTransform.anchoredPosition += new Vector2(0,-10);
     }
 
-    private void FixedUpdate() {
+    private void Update() {
         ChangeKeyText();
         if(Input.GetKey(buttonList.Buttons[ID])) {
             keyImage.sprite = ButtonPressedImage;
