@@ -56,10 +56,10 @@ public class ButtonList : MonoBehaviour
     }
 
     public void DefaultButtons() {
-        LeftKey = KeyCode.W;
-        RightKey = KeyCode.A;
-        UpKey = KeyCode.S;
-        DownKey = KeyCode.D;
+        LeftKey = KeyCode.A;
+        RightKey = KeyCode.D;
+        UpKey = KeyCode.W;
+        DownKey = KeyCode.S;
         AbilityKey = KeyCode.Q;
     }
 }
