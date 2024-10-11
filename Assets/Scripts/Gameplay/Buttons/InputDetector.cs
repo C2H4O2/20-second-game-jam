@@ -10,7 +10,7 @@ public class InputDetector : MonoBehaviour
         buttonList = FindAnyObjectByType<ButtonList>();
     }
 
-
+    
     //Horizontal
     public Vector2 Movement() {
         Vector2 Movement = Vector2.zero;
