@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class InputDetector : MonoBehaviour
 {
-    [SerializeField] ButtonList ButtonList;
+    [SerializeField] ButtonList buttonList;
 
     private void Awake() {
-        ButtonList buttonList = FindAnyObjectByType<ButtonList>();
+        buttonList = FindAnyObjectByType<ButtonList>();
     }
 
 
     //Horizontal
     public Vector2 Movement() {
         Vector2 Movement = Vector2.zero;
-        if(Input.GetKey(ButtonList.LeftKey)) {
-            Movement += Vector2.left;
-        }
-        if(Input.GetKey(ButtonList.RightKey)) {
-            Movement += Vector2.right;
-        }
-        if(Input.GetKey(ButtonList.UpKey)) {
+        if(Input.GetKey(buttonList.UpKey)) {
             Movement += Vector2.up;
         }
-        if(Input.GetKey(ButtonList.DownKey)) {
+        if(Input.GetKey(buttonList.DownKey)) {
             Movement += Vector2.down;
+        }
+        if(Input.GetKey(buttonList.LeftKey)) {
+            Movement += Vector2.left;
+        }
+        if(Input.GetKey(buttonList.RightKey)) {
+            Movement += Vector2.right;
         }
         return Movement;
     }

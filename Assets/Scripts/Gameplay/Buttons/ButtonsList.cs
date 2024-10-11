@@ -54,4 +54,12 @@ public class ButtonList : MonoBehaviour
             }
         }
     }
+
+    public void DefaultButtons() {
+        LeftKey = KeyCode.LeftArrow;
+        RightKey = KeyCode.RightArrow;
+        UpKey = KeyCode.UpArrow;
+        DownKey = KeyCode.DownArrow;
+        AbilityKey = KeyCode.Space;
+    }
 }
