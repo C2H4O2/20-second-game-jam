@@ -14,9 +14,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float velPower;
     [SerializeField] private float acceleration;
     [SerializeField] private float decceleration;
-    
-    private bool facingRight;
+    [SerializeField] private float rayDistance;
+    [SerializeField] private float coyoteTimeDuration = 0.2f; // Coyote time duration
+    private float coyoteTimeCounter; // Timer for coyote time
 
+    private bool facingRight;
     private Rigidbody2D rbody;
 
     public bool FacingRight { get => facingRight; }
@@ -27,20 +29,32 @@ public class Player : MonoBehaviour
         inputDetector = FindAnyObjectByType<InputDetector>();
     }
 
+    // Checks if player is grounded
     private bool IsGrounded() {
-        return GetComponent<Rigidbody2D>().linearVelocity.y == 0;
+        return rbody.linearVelocity.y == 0 && Physics2D.Raycast(transform.position, Vector2.down, rayDistance);
     }
 
-
-    
     private void FixedUpdate() {
-        if(inputDetector.Movement().x != 0) {
+        // Update coyote time counter if not grounded
+        if (IsGrounded()) {
+            coyoteTimeCounter = coyoteTimeDuration; // Reset counter when grounded
+        } else {
+            coyoteTimeCounter -= Time.fixedDeltaTime; // Countdown timer if in the air
+        }
+
+        // Horizontal movement
+        if (inputDetector.Movement().x != 0) {
             HorizontalMovement.Run(rbody, inputDetector.Movement().x, speed, acceleration, decceleration, velPower);
         }
-        if(inputDetector.Movement().y > 0 && IsGrounded()) {
+
+        // Jump if the player presses up and either is grounded or has coyote time left
+        if (inputDetector.Movement().y > 0 && coyoteTimeCounter > 0) {
             VerticalMovement.Jump(rbody, jumpForce);
+            coyoteTimeCounter = 0; // Reset counter to prevent double jumps
         }
-        if(inputDetector.Movement().y < 0 && !IsGrounded()) {
+
+        // Fall faster if moving down and not grounded
+        if (inputDetector.Movement().y < 0 && !IsGrounded()) {
             VerticalMovement.Fall(rbody, fallForce, minFallSpeed);
         }
     }
