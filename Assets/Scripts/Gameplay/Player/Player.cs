@@ -17,9 +17,7 @@ public class Player : MonoBehaviour
     
     private bool facingRight;
 
-
     private Rigidbody2D rbody;
-    private Vector2 moveInput;
 
     public bool FacingRight { get => facingRight; }
     public Rigidbody2D Rbody { get => rbody; }
@@ -32,6 +30,8 @@ public class Player : MonoBehaviour
     private bool IsGrounded() {
         return GetComponent<Rigidbody2D>().linearVelocity.y == 0;
     }
+
+
     
     private void FixedUpdate() {
         if(inputDetector.Movement().x != 0) {

@@ -24,6 +24,7 @@ namespace Movement
 
             Rbody.linearVelocity = new Vector2(Rbody.linearVelocity.x, Mathf.Min(Rbody.linearVelocity.y, MinFallSpeed));
         }
+        /*
         public static void HandleVerticalMovement(Rigidbody2D Rbody, bool direction, bool Grounded, float JumpForce, float FallForce, float MinFallSpeed)
         {
             if (Grounded) {
@@ -38,6 +39,7 @@ namespace Movement
             }
         }
         //Split this into jump and fall
+        */
     }
 
 }
