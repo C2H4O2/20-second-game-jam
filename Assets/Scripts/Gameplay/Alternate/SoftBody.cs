@@ -6,7 +6,7 @@ public class SoftBody : MonoBehaviour
     private const float splineoffset = 0.5f;
     [SerializeField] private SpriteShapeController spriteShapeController;
     [SerializeField] private Transform[] points;
-    [SerializeField] private float scaleFactor = 1.0f;  // Default scaling factor
+    [SerializeField] private float scaleFactor = 1.0f;
 
     private void Awake()
     {
@@ -20,15 +20,15 @@ public class SoftBody : MonoBehaviour
 
     public void ScaleShape(float scaleAmount)
     {
-        scaleFactor = scaleAmount; // Update scaleFactor with the provided value
-        UpdateVertices(); // Recalculate vertices with the new scale
+        scaleFactor = scaleAmount;
+        UpdateVertices();
     }
 
     private void UpdateVertices()
     {
         for (int i = 0; i < points.Length; i++)
         {
-            Vector2 vertex = points[i].localPosition * scaleFactor;  // Apply scaling
+            Vector2 vertex = points[i].localPosition * scaleFactor;
             Vector2 towardsCenter = (Vector2.zero - vertex).normalized;
             float colliderRadius = points[i].gameObject.GetComponent<CircleCollider2D>().radius;
 
@@ -42,10 +42,10 @@ public class SoftBody : MonoBehaviour
                 spriteShapeController.spline.SetPosition(i, vertex - towardsCenter * (colliderRadius + splineoffset));
             }
 
-            // Adjust tangents for smoothness
             Vector2 lt = spriteShapeController.spline.GetLeftTangent(i);
             Vector2 newRt = Vector2.Perpendicular(towardsCenter) * lt.magnitude;
             Vector2 newLt = Vector2.zero - newRt;
+
             spriteShapeController.spline.SetLeftTangent(i, newLt);
             spriteShapeController.spline.SetRightTangent(i, newRt);
         }

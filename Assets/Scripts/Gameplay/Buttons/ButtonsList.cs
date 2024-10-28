@@ -37,6 +37,22 @@ public class ButtonList : MonoBehaviour
         Debug.Log("Ability Key assigned to: " + AbilityKey);
     }
 
+    public void ReRandomise() {
+        ButtonRandomiser.RandomiseKeys(Buttons);
+
+        UpKey = buttons[0];
+        LeftKey = buttons[1];
+        DownKey = buttons[2];
+        RightKey = buttons[3];
+        AbilityKey = buttons[4];
+
+        Debug.Log("Up Key assigned to: " + UpKey);
+        Debug.Log("Left Key assigned to: " + LeftKey);
+        Debug.Log("Down Key assigned to: " + DownKey);
+        Debug.Log("Right Key assigned to: " + RightKey);
+        Debug.Log("Ability Key assigned to: " + AbilityKey);
+    }
+
 
     private void AddButtons() { 
         TextAsset buttonsListTextAsset = Resources.Load<TextAsset>("Valid_Buttons"); // Load the text file

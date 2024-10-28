@@ -9,12 +9,15 @@ public class Timer : MonoBehaviour
     [SerializeField] private float time;
     [SerializeField] private int seconds;
     [SerializeField] private int milliseconds; 
-    private bool timerOn;
+    [SerializeField] private bool timerOn;
+
+    public float Time { get => time; set => time = value; }
+
     private void Update() {
-        if(time > 0 && timerOn) {
-            time -= Time.deltaTime;
-            seconds = (int)Math.Floor(time);
-            milliseconds = MillisecondTruncate(time);
+        if(Time > 0 && timerOn) {
+            Time -= UnityEngine.Time.deltaTime;
+            seconds = (int)Math.Floor(Time);
+            milliseconds = MillisecondTruncate(Time);
             timerSecondsText.text = seconds.ToString() + " : ";
             timerMillisecondsText.text = milliseconds.ToString();
         }
