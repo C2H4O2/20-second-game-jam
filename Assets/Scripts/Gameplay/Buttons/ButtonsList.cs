@@ -22,7 +22,7 @@ public class ButtonList : MonoBehaviour
 
     private void Start() {
         AddButtons();
-        ButtonRandomiser.RandomiseKeys(Buttons);
+        DefaultButtons();
 
         UpKey = buttons[0];
         LeftKey = buttons[1];
@@ -72,10 +72,20 @@ public class ButtonList : MonoBehaviour
     }
 
     public void DefaultButtons() {
-        LeftKey = KeyCode.A;
-        RightKey = KeyCode.D;
-        UpKey = KeyCode.W;
-        DownKey = KeyCode.S;
-        AbilityKey = KeyCode.Q;
-    }
+        buttons.Remove(KeyCode.W);
+        buttons.Remove(KeyCode.A);
+        buttons.Remove(KeyCode.S);
+        buttons.Remove(KeyCode.D);
+        buttons.Remove(KeyCode.Q);
+        buttons.Insert(0, KeyCode.Q);
+        buttons.Insert(0, KeyCode.D);
+        buttons.Insert(0, KeyCode.S);
+        buttons.Insert(0, KeyCode.A);
+        buttons.Insert(0, KeyCode.W);
+        UpKey = buttons[0];
+        LeftKey = buttons[1];
+        DownKey = buttons[2];
+        RightKey = buttons[3];
+        AbilityKey = buttons[4];
+    } 
 }
