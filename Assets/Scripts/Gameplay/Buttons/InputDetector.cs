@@ -14,16 +14,16 @@ public class InputDetector : MonoBehaviour
     //Horizontal
     public Vector2 Movement() {
         Vector2 Movement = Vector2.zero;
-        if(Input.GetKey(buttonList.UpKey)) {
+        if(Input.GetKey(buttonList.Buttons[0])) {
             Movement += Vector2.up;
         }
-        if(Input.GetKey(buttonList.DownKey)) {
-            Movement += Vector2.down;
-        }
-        if(Input.GetKey(buttonList.LeftKey)) {
+        if(Input.GetKey(buttonList.Buttons[1])) {
             Movement += Vector2.left;
         }
-        if(Input.GetKey(buttonList.RightKey)) {
+        if(Input.GetKey(buttonList.Buttons[2])) {
+            Movement += Vector2.down;
+        }
+        if(Input.GetKey(buttonList.Buttons[3])) {
             Movement += Vector2.right;
         }
         return Movement;
