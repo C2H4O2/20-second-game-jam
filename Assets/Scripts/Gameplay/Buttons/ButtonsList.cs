@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Button;
 using UnityEngine;
 
@@ -14,21 +15,23 @@ public class ButtonList : MonoBehaviour
     private KeyCode downKey;
     private KeyCode abilityKey;
 
+    private KeyCode oldLeftKey;
+    private KeyCode oldRightKey;
+    private KeyCode oldUpKey;
+    private KeyCode oldDownKey;
+    private KeyCode oldAbilityKey;
+
+    #region Getters
     public KeyCode LeftKey { get => leftKey; private set => leftKey = value; }
     public KeyCode RightKey { get => rightKey; private set => rightKey = value; }
     public KeyCode UpKey { get => upKey; private set => upKey = value; }
     public KeyCode DownKey { get => downKey; private set => downKey = value; }
     public KeyCode AbilityKey { get => abilityKey; private set => abilityKey = value; }
+    #endregion
 
     private void Start() {
         AddButtons();
         DefaultButtons();
-
-        UpKey = buttons[0];
-        LeftKey = buttons[1];
-        DownKey = buttons[2];
-        RightKey = buttons[3];
-        AbilityKey = buttons[4];
 
         Debug.Log("Up Key assigned to: " + UpKey);
         Debug.Log("Left Key assigned to: " + LeftKey);
@@ -38,21 +41,10 @@ public class ButtonList : MonoBehaviour
     }
 
     public void ReRandomise() {
+        SavePrevKeys();
         ButtonRandomiser.RandomiseKeys(Buttons);
-
-        UpKey = buttons[0];
-        LeftKey = buttons[1];
-        DownKey = buttons[2];
-        RightKey = buttons[3];
-        AbilityKey = buttons[4];
-
-        Debug.Log("Up Key assigned to: " + UpKey);
-        Debug.Log("Left Key assigned to: " + LeftKey);
-        Debug.Log("Down Key assigned to: " + DownKey);
-        Debug.Log("Right Key assigned to: " + RightKey);
-        Debug.Log("Ability Key assigned to: " + AbilityKey);
+        Buttons.InsertRange(5, new KeyCode[] { oldUpKey, oldLeftKey, oldDownKey, oldRightKey, oldAbilityKey });
     }
-
 
     private void AddButtons() { 
         TextAsset buttonsListTextAsset = Resources.Load<TextAsset>("Valid_Buttons"); // Load the text file
@@ -71,21 +63,32 @@ public class ButtonList : MonoBehaviour
         }
     }
 
+    private void SavePrevKeys() {
+        oldUpKey = UpKey;
+        oldLeftKey = LeftKey;
+        oldDownKey = DownKey;
+        oldRightKey = RightKey;
+        oldAbilityKey = AbilityKey;
+    }
+
     public void DefaultButtons() {
-        buttons.Remove(KeyCode.W);
-        buttons.Remove(KeyCode.A);
-        buttons.Remove(KeyCode.S);
-        buttons.Remove(KeyCode.D);
-        buttons.Remove(KeyCode.Q);
-        buttons.Insert(0, KeyCode.Q);
-        buttons.Insert(0, KeyCode.D);
-        buttons.Insert(0, KeyCode.S);
-        buttons.Insert(0, KeyCode.A);
-        buttons.Insert(0, KeyCode.W);
-        UpKey = buttons[0];
-        LeftKey = buttons[1];
-        DownKey = buttons[2];
-        RightKey = buttons[3];
-        AbilityKey = buttons[4];
-    } 
+        KeyCode[] keyCodes = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.Q };
+
+        SetKeys(keyCodes);
+
+        UpKey = KeyCode.W;
+        LeftKey = KeyCode.A;
+        DownKey = KeyCode.S;
+        RightKey = KeyCode.D;
+        AbilityKey = KeyCode.Q;
+
+        Debug.Log("Keys set to default WASD controls in the specified order.");
+    }
+
+    private void SetKeys(KeyCode[] keyCodes) {
+        foreach (var keyCode in keyCodes) {
+            buttons.Remove(keyCode);
+        }
+        buttons.InsertRange(0, keyCodes);
+    }
 }
