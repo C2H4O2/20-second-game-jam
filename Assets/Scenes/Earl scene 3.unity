@@ -290,7 +290,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167828178}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0000000027937475, y: -0.012563502, z: 3.5102022e-11, w: 0.9999211}
+  m_LocalRotation: {x: 0.000000015928537, y: -0.012445236, z: 1.9824974e-10, w: 0.9999226}
   m_LocalPosition: {x: 0.19994684, y: -0.12, z: -9.997581}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1494,7 +1494,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2070842370}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0000000027937475, y: -0.012563503, z: 3.5102025e-11, w: 0.9999211}
+  m_LocalRotation: {x: 0.000000015928535, y: -0.012445236, z: 1.9824974e-10, w: 0.9999226}
   m_LocalPosition: {x: 0.19994679, y: -0.12, z: -9.997581}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1725,6 +1725,18 @@ PrefabInstance:
       propertyPath: m_DampingRatio
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4292701107574335956, guid: dd5fdd4cc92f4844e9f69d6181f2405d, type: 3}
+      propertyPath: m_Color.b
+      value: 0.23529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 4292701107574335956, guid: dd5fdd4cc92f4844e9f69d6181f2405d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8235294
+      objectReference: {fileID: 0}
+    - target: {fileID: 4292701107574335956, guid: dd5fdd4cc92f4844e9f69d6181f2405d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5430226819495956299, guid: dd5fdd4cc92f4844e9f69d6181f2405d, type: 3}
       propertyPath: m_Frequency
       value: 2
@@ -1737,6 +1749,10 @@ PrefabInstance:
       propertyPath: friction
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 5660199421723477033, guid: dd5fdd4cc92f4844e9f69d6181f2405d, type: 3}
+      propertyPath: acceleration
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 5838830810082055610, guid: dd5fdd4cc92f4844e9f69d6181f2405d, type: 3}
       propertyPath: m_Frequency
       value: 2
@@ -1744,6 +1760,18 @@ PrefabInstance:
     - target: {fileID: 6712170431286980272, guid: dd5fdd4cc92f4844e9f69d6181f2405d, type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6804780373618432114, guid: dd5fdd4cc92f4844e9f69d6181f2405d, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8862745
+      objectReference: {fileID: 0}
+    - target: {fileID: 6804780373618432114, guid: dd5fdd4cc92f4844e9f69d6181f2405d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.93333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6804780373618432114, guid: dd5fdd4cc92f4844e9f69d6181f2405d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9529412
       objectReference: {fileID: 0}
     - target: {fileID: 7762844792031765683, guid: dd5fdd4cc92f4844e9f69d6181f2405d, type: 3}
       propertyPath: m_Name

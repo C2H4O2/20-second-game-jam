@@ -41,10 +41,20 @@ public class ButtonList : MonoBehaviour
     }
 
     public void ReRandomise() {
-        SavePrevKeys();
-        ButtonRandomiser.RandomiseKeys(Buttons);
-        Buttons.InsertRange(5, new KeyCode[] { oldUpKey, oldLeftKey, oldDownKey, oldRightKey, oldAbilityKey });
-    }
+    SavePrevKeys();
+    ButtonRandomiser.RandomiseKeys(Buttons);
+
+    // Remove old keys if they still exist in the randomized list
+    Buttons.Remove(oldUpKey);
+    Buttons.Remove(oldLeftKey);
+    Buttons.Remove(oldDownKey);
+    Buttons.Remove(oldRightKey);
+    Buttons.Remove(oldAbilityKey);
+
+    // Insert old keys back at index 5
+    Buttons.InsertRange(5, new KeyCode[] { oldUpKey, oldLeftKey, oldDownKey, oldRightKey, oldAbilityKey });
+}
+
 
     private void AddButtons() { 
         TextAsset buttonsListTextAsset = Resources.Load<TextAsset>("Valid_Buttons"); // Load the text file
@@ -54,7 +64,6 @@ public class ButtonList : MonoBehaviour
             try {
                 KeyCode keyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), ButtonList[i].ToString());
                 Buttons.Add(keyCode);
-
                 Debug.Log("Successfully added: " + ButtonList[i].ToString());
             }
             catch {
