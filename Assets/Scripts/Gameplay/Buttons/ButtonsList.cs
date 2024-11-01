@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using Button;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ButtonList : MonoBehaviour
 {
     private List<KeyCode> buttons = new List<KeyCode>();
     public List<KeyCode> Buttons { get => buttons; private set => buttons = value; }
-
+    public UnityEvent randomiseKeysEvent;
     private KeyCode leftKey;
     private KeyCode rightKey;
     private KeyCode upKey;
@@ -41,19 +42,20 @@ public class ButtonList : MonoBehaviour
     }
 
     public void ReRandomise() {
-    SavePrevKeys();
-    ButtonRandomiser.RandomiseKeys(Buttons);
+        randomiseKeysEvent.Invoke();
+        SavePrevKeys();
+        ButtonRandomiser.RandomiseKeys(Buttons);
 
-    // Remove old keys if they still exist in the randomized list
-    Buttons.Remove(oldUpKey);
-    Buttons.Remove(oldLeftKey);
-    Buttons.Remove(oldDownKey);
-    Buttons.Remove(oldRightKey);
-    Buttons.Remove(oldAbilityKey);
+        // Remove old keys if they still exist in the randomized list
+        Buttons.Remove(oldUpKey);
+        Buttons.Remove(oldLeftKey);
+        Buttons.Remove(oldDownKey);
+        Buttons.Remove(oldRightKey);
+        Buttons.Remove(oldAbilityKey);
 
-    // Insert old keys back at index 5
-    Buttons.InsertRange(5, new KeyCode[] { oldUpKey, oldLeftKey, oldDownKey, oldRightKey, oldAbilityKey });
-}
+        // Insert old keys back at index 5
+        Buttons.InsertRange(5, new KeyCode[] { oldUpKey, oldLeftKey, oldDownKey, oldRightKey, oldAbilityKey });
+    }
 
 
     private void AddButtons() { 

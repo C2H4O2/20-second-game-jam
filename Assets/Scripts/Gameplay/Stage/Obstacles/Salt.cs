@@ -10,7 +10,7 @@ public class Salt : MonoBehaviour
         {
             Debug.Log("The " + other.gameObject.name + " collected the salt");
             SaltGrabEvent.Invoke();
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }
