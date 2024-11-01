@@ -55,5 +55,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Yolk Splatter
+    uniqueID: 3703696151
+    locked: 0
+  - name: Spatula
+    uniqueID: 1254953041
+    locked: 0
   m_RenderingLayers:
   - Default

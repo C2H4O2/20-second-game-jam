@@ -1,10 +1,12 @@
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Spatula : MonoBehaviour
 {
     private Egg egg;
     private Rigidbody2D rb;
+    public UnityEvent SpatulaHitEgg;
     [SerializeField] private float followSpeed = 2f; // Adjust for desired follow speed
     [SerializeField] private float followSmoothness = 0.05f; // Smoothing for more natural following
 
@@ -18,6 +20,7 @@ public class Spatula : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            SpatulaHitEgg.Invoke();
             Debug.Log("The Spatula hit " + other.gameObject.name);
         }
     }
