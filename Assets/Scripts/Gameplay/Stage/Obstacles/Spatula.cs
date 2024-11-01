@@ -31,4 +31,8 @@ public class Spatula : MonoBehaviour
         Vector2 targetVelocity = directionToEgg * followSpeed;
         rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, followSmoothness);
     }
+
+    public void ResetVelocity() {
+        rb.linearVelocity = Vector2.zero;
+    }
 }

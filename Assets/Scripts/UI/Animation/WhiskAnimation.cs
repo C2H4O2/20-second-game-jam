@@ -9,7 +9,6 @@ public class WhiskAnimation : MonoBehaviour
     private Vector2 originalPosition;
 
     private void Start() {
-        // Store the original position of the UI element before the animation
         originalPosition = uiElement.position;
     }
 
@@ -21,7 +20,6 @@ public class WhiskAnimation : MonoBehaviour
         LeanTween.moveSpline(uiElement.gameObject, path, duration)
             .setEase(LeanTweenType.easeInOutSine)
             .setOnComplete(() => {
-                // Wait 1 second before snapping back to the original position
                 LeanTween.delayedCall(1f, () => uiElement.position = originalPosition);
             });
     }

@@ -46,14 +46,16 @@ public class ButtonList : MonoBehaviour
         SavePrevKeys();
         ButtonRandomiser.RandomiseKeys(Buttons);
 
-        // Remove old keys if they still exist in the randomized list
         Buttons.Remove(oldUpKey);
         Buttons.Remove(oldLeftKey);
         Buttons.Remove(oldDownKey);
         Buttons.Remove(oldRightKey);
         Buttons.Remove(oldAbilityKey);
-
-        // Insert old keys back at index 5
+        UpKey = buttons[0];
+        LeftKey = buttons[1];
+        DownKey = buttons[2];
+        RightKey = buttons[3];
+        AbilityKey = buttons[4];
         Buttons.InsertRange(5, new KeyCode[] { oldUpKey, oldLeftKey, oldDownKey, oldRightKey, oldAbilityKey });
     }
 

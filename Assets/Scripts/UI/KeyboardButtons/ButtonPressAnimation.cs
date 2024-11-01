@@ -39,7 +39,7 @@ public class ButtonPressAnimation : MonoBehaviour
             keyText.rectTransform.anchoredPosition = defaultPos;
         }
 
-        if (Input.GetKey(buttonList.Buttons[ID + 5]) && !IsKeyInNewRandomKeys(buttonList.Buttons[ID])) {
+        if (Input.GetKey(buttonList.Buttons[ID + 5]) ) {
             keyImage.color = redColor; 
         } else {
             keyImage.color = defaultColor;
