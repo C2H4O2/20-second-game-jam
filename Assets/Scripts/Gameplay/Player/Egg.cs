@@ -9,7 +9,10 @@ public class Egg : MonoBehaviour
     [SerializeField] private float friction = 0.9f;
     [SerializeField] private float wobbleIntensity = 2.0f;
     [SerializeField] private float wobbleFrequency = 3.0f;
+    private bool canMove = true;
     private Rigidbody2D rbody;
+
+    public bool CanMove { get => canMove; set => canMove = value; }
 
     private void Awake() {
         rbody = GetComponent<Rigidbody2D>();
@@ -19,9 +22,8 @@ public class Egg : MonoBehaviour
     private void FixedUpdate() {
         Vector2 movementInput = inputDetector.Movement();
 
-        if (movementInput != Vector2.zero) {
+        if (movementInput != Vector2.zero && canMove) {
             RollInDirection(movementInput);
-            //ApplySpinEffect(movementInput);
         } else {
             ApplyFriction();
         }
