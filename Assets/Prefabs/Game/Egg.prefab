@@ -920,8 +920,6 @@ MonoBehaviour:
   friction: 0.9
   wobbleIntensity: 2
   wobbleFrequency: 3
-  torquePower: 3
-  maxSpinSpeed: 300
 --- !u!50 &4569067861024600946
 Rigidbody2D:
   serializedVersion: 5
