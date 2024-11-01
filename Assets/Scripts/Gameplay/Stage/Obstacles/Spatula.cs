@@ -1,7 +1,7 @@
 using Unity.Collections;
 using UnityEngine;
 
-public class Scrambled : MonoBehaviour
+public class Spatula : MonoBehaviour
 {
     private Egg egg;
     private Rigidbody2D rb;
