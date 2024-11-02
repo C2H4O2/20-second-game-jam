@@ -129,6 +129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a90820ed74db0348a823ba80489015c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpatulaHitEgg:
+    m_PersistentCalls:
+      m_Calls: []
   followSpeed: 10
   followSmoothness: 0.001
 --- !u!60 &1919618064426704272
