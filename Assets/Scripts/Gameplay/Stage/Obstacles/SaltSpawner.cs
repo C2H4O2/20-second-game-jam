@@ -3,11 +3,14 @@ using System.Collections;
 
 public class SaltSpawner : MonoBehaviour
 {
+    [SerializeField] Timer timer;
     [SerializeField] private GameObject salt;
     [SerializeField] private CircleCollider2D panCollider;
-    [SerializeField] private float minSpawnTime = 3f;
-    [SerializeField] private float maxSpawnTime = 5f;
+    [SerializeField] private float spawnTime = 3.5f;
 
+    private void Awake() {
+        timer = FindAnyObjectByType<Timer>();
+    }
     void Start()
     {
         StartCoroutine(SpawnSalt());
@@ -15,16 +18,15 @@ public class SaltSpawner : MonoBehaviour
 
     IEnumerator SpawnSalt()
     {
-        while (true)
+        while (timer.TimerOn)
         {
-            float spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
             yield return new WaitForSeconds(spawnTime);
             Spawn();
         }
     }
 
     private void Spawn()
-    {
+    {   //fix salt spawning ontop of player
         float spawnRadius = panCollider.radius * panCollider.gameObject.transform.localScale.x; //assume x sf= y sf
         Vector2 randomPosition = new
         Vector2(Random.Range(-spawnRadius,spawnRadius),Random.Range(-spawnRadius,spawnRadius));
