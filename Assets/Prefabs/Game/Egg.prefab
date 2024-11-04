@@ -995,6 +995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1028734c87b29f6469e432a186ec0f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: {fileID: 0}
   spriteShapeController: {fileID: 7982224105694887369}
   points:
   - {fileID: 2896381198979568525}
@@ -1004,6 +1005,7 @@ MonoBehaviour:
   - {fileID: 2030187269983259498}
   - {fileID: 4770932778755582526}
   scaleFactor: 0.75
+  joints: []
 --- !u!1 &8517167238422632067
 GameObject:
   m_ObjectHideFlags: 0
