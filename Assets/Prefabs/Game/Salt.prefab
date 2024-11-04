@@ -137,6 +137,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f2f30dcded96fb4e838220ce7716c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SaltGrabEvent:
-    m_PersistentCalls:
-      m_Calls: []
