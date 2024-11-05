@@ -33,7 +33,7 @@ public class Timer : MonoBehaviour
 
     private void AlertLowTime() {
         float realTime = 20 - Time;
-        float r = (float)(128 * Math.Sin(Math.PI / 2 * realTime) * Math.Sin(Math.PI / 2 * realTime));
+        float r = (float)(128 * Math.Sin(Math.PI  * realTime) * Math.Sin(Math.PI * realTime));
         float g = r * 0.3f; // Add a bit of green to lighten the red
         float b = r * 0.3f; // Add a bit of blue to lighten the red
         timerBaseImage.color = new Color(r / 255f, g / 255f, b / 255f);
