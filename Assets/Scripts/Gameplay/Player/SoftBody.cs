@@ -6,7 +6,6 @@ using UnityEngine.U2D;
 public class SoftBody : MonoBehaviour
 {
     private const float splineoffset = 0.5f;
-    [SerializeField] Timer timer;
     [SerializeField] private SpriteShapeController spriteShapeController;
     [SerializeField] private Transform[] points;
     [SerializeField] private float scaleFactor = 1.0f;
@@ -23,14 +22,12 @@ public class SoftBody : MonoBehaviour
             
         }
         
-        timer = FindAnyObjectByType<Timer>();
         UpdateVertices();
     }
 
     private void Update()
     {
         UpdateVertices();
-        UpdateStiffness();
     }
 
     public void ScaleShape(float scaleAmount)
@@ -41,13 +38,6 @@ public class SoftBody : MonoBehaviour
 
     private double StiffnessEquation(double x) {
         return Math.Sqrt(2) * Math.Pow(2,1/40*x);
-    }
-
-    private void UpdateStiffness() {
-        double stiffness = StiffnessEquation((double)timer.Time);
-        for (int i = 0; i < joints.Count; i++) {
-            joints[i].frequency = (float)(stiffness*stiffness);
-        }
     }
 
     private void UpdateVertices()
