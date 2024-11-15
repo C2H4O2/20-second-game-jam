@@ -9,6 +9,9 @@ public class Spatula : MonoBehaviour
     public UnityEvent SpatulaHitEgg;
     [SerializeField] private float followSpeed = 2f; // Adjust for desired follow speed
     [SerializeField] private float followSmoothness = 0.05f; // Smoothing for more natural following
+    private bool splatulaCanMove;
+
+    public bool SplatulaCanMove { get => splatulaCanMove; set => splatulaCanMove = value; }
 
     private void Awake()
     {
@@ -18,7 +21,12 @@ public class Spatula : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.CompareTag("Spatula"))
+        {
+            return;
+        }
+
+        if (other.CompareTag("Player"))
         {
             SpatulaHitEgg.Invoke();
             Debug.Log("The Spatula hit " + other.gameObject.name);
