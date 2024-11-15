@@ -203,6 +203,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &82899798 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1104303093106225546, guid: 3e96c936e1ebde04580196699586e0a5, type: 3}
+  m_PrefabInstance: {fileID: 3453993178187010601}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &126418704
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +220,7 @@ GameObject:
   - component: {fileID: 126418707}
   - component: {fileID: 126418706}
   m_Layer: 5
-  m_Name: Arrow Settings
+  m_Name: Arrow Hard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,7 +242,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 1192, y: 359}
+  m_AnchoredPosition: {x: 1192, y: 304.99994}
   m_SizeDelta: {x: 131.6, y: 100}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &126418706
@@ -312,7 +317,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -373, y: -244}
+  m_AnchoredPosition: {x: -388, y: -121}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &170588854
@@ -335,9 +340,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Play
-
-'
+  m_text: Easy Mode
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -402,7 +405,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -59.648895, w: -177.76501}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -937,7 +940,7 @@ GameObject:
   - component: {fileID: 1253808934}
   - component: {fileID: 1253808933}
   m_Layer: 0
-  m_Name: table_0
+  m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1550,7 +1553,7 @@ GameObject:
   - component: {fileID: 1649478678}
   - component: {fileID: 1649478677}
   m_Layer: 5
-  m_Name: Arrow Play
+  m_Name: Arrow Easy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1672,7 +1675,7 @@ GameObject:
   - component: {fileID: 1849533773}
   - component: {fileID: 1849533772}
   m_Layer: 5
-  m_Name: SettingsText
+  m_Name: HardText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1694,7 +1697,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 308, y: 461}
+  m_AnchoredPosition: {x: 378, y: 517}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1849533772
@@ -1717,7 +1720,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Settings
+  m_text: Hard Mode
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1782,7 +1785,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -192.39145, w: -48.097904}
+  m_margin: {x: 0, y: 0, z: -192.39145, w: -205.25375}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1851,10 +1854,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1964433074}
   - component: {fileID: 1964433073}
-  - component: {fileID: 1964433076}
   - component: {fileID: 1964433075}
+  - component: {fileID: 1964433077}
+  - component: {fileID: 1964433078}
   m_Layer: 0
-  m_Name: OpenSettingsTrigger
+  m_Name: HardModeTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1936,9 +1940,21 @@ MonoBehaviour:
   onEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1964433076}
-        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
-        m_MethodName: OpenSettings
+      - m_Target: {fileID: 1964433077}
+        m_TargetAssemblyTypeName: Difficulty, Assembly-CSharp
+        m_MethodName: SetHard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 82899798}
+        m_TargetAssemblyTypeName: Difficulty, Assembly-CSharp
+        m_MethodName: SetHard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1950,20 +1966,8 @@ MonoBehaviour:
         m_CallState: 2
   onExit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1964433076}
-        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
-        m_MethodName: CloseSettings
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1964433076
+      m_Calls: []
+--- !u!114 &1964433077
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1972,10 +1976,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1964433072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eb8ec18789555740ab0672ea950c3b0, type: 3}
+  m_Script: {fileID: 11500000, guid: ac8e9ed0e33bd1a42aedc966aa4e14e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsScene: {fileID: 102900000, guid: 4c84e2d45ef985740a4767e44d499848, type: 3}
+--- !u!114 &1964433078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964433072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f493fe8bc3a8541bfc560e78645d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: {fileID: 102900000, guid: 40f12daf5b540d94daa3fb45ba3fe641, type: 3}
+  transition: {fileID: 11400000, guid: d641980330b54c243a644222c797e582, type: 2}
+  startDelay: 0
 --- !u!1001 &3347144094204597584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2247,7 +2265,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1104303093106225546, guid: 3e96c936e1ebde04580196699586e0a5, type: 3}
       propertyPath: m_Name
-      value: LoadSceneTrigger
+      value: EasyModeTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 2534787266715284736, guid: 3e96c936e1ebde04580196699586e0a5, type: 3}
       propertyPath: m_LocalScale.y
@@ -2309,6 +2327,14 @@ PrefabInstance:
       propertyPath: sceneToLoad
       value: 
       objectReference: {fileID: 102900000, guid: 40f12daf5b540d94daa3fb45ba3fe641, type: 3}
+    - target: {fileID: 5543933823010040219, guid: 3e96c936e1ebde04580196699586e0a5, type: 3}
+      propertyPath: m_Size.x
+      value: 2.5982504
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543933823010040219, guid: 3e96c936e1ebde04580196699586e0a5, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.12889147
+      objectReference: {fileID: 0}
     - target: {fileID: 8650115373075924783, guid: 3e96c936e1ebde04580196699586e0a5, type: 3}
       propertyPath: m_text
       value: Play!
@@ -2330,12 +2356,11 @@ PrefabInstance:
       value: 4278190080
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1953945965758303707, guid: 3e96c936e1ebde04580196699586e0a5, type: 3}
+    - {fileID: 2920496150975146453, guid: 3e96c936e1ebde04580196699586e0a5, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1953945965758303707, guid: 3e96c936e1ebde04580196699586e0a5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e96c936e1ebde04580196699586e0a5, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

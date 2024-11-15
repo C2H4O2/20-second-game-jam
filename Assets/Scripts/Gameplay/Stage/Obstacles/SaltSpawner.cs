@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SaltSpawner : MonoBehaviour
 {
-    [SerializeField] Timer timer;
+    private Timer timer;
     [SerializeField] private GameObject salt;
     [SerializeField] private CircleCollider2D panCollider;
     [SerializeField] private float spawnTime = 3.5f;
@@ -35,6 +35,11 @@ public class SaltSpawner : MonoBehaviour
         if (Vector2.Distance(randomPosition, eggPosition) > minimumDistance)
         {
             Instantiate(salt, randomPosition, Quaternion.identity);
+        }
+        else {
+            Vector2 directionToOrigin = (Vector2.zero - eggPosition).normalized;
+            Vector2 closestPosition = eggPosition + directionToOrigin * minimumDistance;
+            Instantiate(salt, closestPosition, Quaternion.identity);
         }
         Debug.Log("New Salt has spwaned");
        
