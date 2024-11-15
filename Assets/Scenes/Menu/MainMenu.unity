@@ -208,6 +208,48 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1104303093106225546, guid: 3e96c936e1ebde04580196699586e0a5, type: 3}
   m_PrefabInstance: {fileID: 3453993178187010601}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &82899803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82899798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8e9ed0e33bd1a42aedc966aa4e14e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &82899804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82899798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd4eea028b943f14a887d44e06bfc313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1964433077}
+        m_TargetAssemblyTypeName: Difficulty, Assembly-CSharp
+        m_MethodName: SetEasy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &126418704
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,18 +1994,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 82899798}
-        m_TargetAssemblyTypeName: Difficulty, Assembly-CSharp
-        m_MethodName: SetHard
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   onExit:
     m_PersistentCalls:
       m_Calls: []
@@ -2360,7 +2390,13 @@ PrefabInstance:
     - {fileID: 1953945965758303707, guid: 3e96c936e1ebde04580196699586e0a5, type: 3}
     - {fileID: 2920496150975146453, guid: 3e96c936e1ebde04580196699586e0a5, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1104303093106225546, guid: 3e96c936e1ebde04580196699586e0a5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 82899803}
+    - targetCorrespondingSourceObject: {fileID: 1104303093106225546, guid: 3e96c936e1ebde04580196699586e0a5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 82899804}
   m_SourcePrefab: {fileID: 100100000, guid: 3e96c936e1ebde04580196699586e0a5, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
