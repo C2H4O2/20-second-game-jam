@@ -1091,7 +1091,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1185,7 +1185,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 128186b52edcce841a315a75463a0206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainMusic: {fileID: 8300000, guid: 300731aa2c5efac49a6c2883d55bd892, type: 3}
+  musicPlaylist:
+  - songName: Poppin
+    clip: {fileID: 8300000, guid: 806eb9be589bf5e4eb1156b530afd572, type: 3}
+  - songName: Moanin
+    clip: {fileID: 8300000, guid: 300731aa2c5efac49a6c2883d55bd892, type: 3}
 --- !u!4 &1355411209
 Transform:
   m_ObjectHideFlags: 0
@@ -2403,6 +2407,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1557722998}
+  - {fileID: 1355411209}
   - {fileID: 1150972691}
   - {fileID: 1045296675}
   - {fileID: 635468651}
@@ -2411,6 +2416,5 @@ SceneRoots:
   - {fileID: 3347144094204597584}
   - {fileID: 3453993178187010601}
   - {fileID: 1964433074}
-  - {fileID: 1355411209}
   - {fileID: 1253808934}
   - {fileID: 393051362}
