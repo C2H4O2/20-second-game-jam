@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,9 +12,13 @@ public class Song
 public class MusicManager : MonoBehaviour
 {
     [SerializeField] private List<Song> musicPlaylist;
+    [SerializeField] private float fadeDuration = 1f; // Duration of fade-in/out
+    
     private AudioSource audioSource;
     private List<Song> remainingSongs;
     private static MusicManager instance;
+    private Coroutine fadeCoroutine;
+    private bool paused;
 
     private void Awake()
     {
@@ -42,7 +47,7 @@ public class MusicManager : MonoBehaviour
 
     private void Update()
     {
-        if (!audioSource.isPlaying && audioSource.clip != null)
+        if (!audioSource.isPlaying && audioSource.clip != null && !paused)
         {
             PlayNextSong();
         }
@@ -66,5 +71,42 @@ public class MusicManager : MonoBehaviour
     {
         int generatedSongIndex = Random.Range(0, remainingSongs.Count);
         return remainingSongs[generatedSongIndex];
+    }
+
+    public void PauseTrack()
+    {
+        paused = true;
+        if (fadeCoroutine != null)
+        {
+            StopCoroutine(fadeCoroutine);
+        }
+        fadeCoroutine = StartCoroutine(FadeVolume(0f, fadeDuration, () => audioSource.Pause()));
+    }
+
+    public void ResumeTrack()
+    {
+        paused = false;
+        if (fadeCoroutine != null)
+        {
+            StopCoroutine(fadeCoroutine);
+        }
+        audioSource.UnPause();
+        fadeCoroutine = StartCoroutine(FadeVolume(1f, fadeDuration));
+    }
+
+    private IEnumerator FadeVolume(float targetVolume, float duration, System.Action onComplete = null)
+    {
+        float startVolume = audioSource.volume;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(startVolume, targetVolume, elapsedTime / duration);
+            yield return null;
+        }
+
+        audioSource.volume = targetVolume;
+        onComplete?.Invoke();
     }
 }

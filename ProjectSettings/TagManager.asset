@@ -44,6 +44,9 @@ TagManager:
   - name: Background
     uniqueID: 1694928015
     locked: 0
+  - name: Flame
+    uniqueID: 1647036517
+    locked: 0
   - name: Pan Outer
     uniqueID: 3339500207
     locked: 0
