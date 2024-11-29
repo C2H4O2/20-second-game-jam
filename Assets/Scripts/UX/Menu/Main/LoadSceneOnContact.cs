@@ -16,7 +16,7 @@ public class LoadSceneOnContact : MonoBehaviour
         }
     }
 
-    private void TriggerGameStart() {
+    public void TriggerGameStart() {
         TransitionManager.Instance().Transition(sceneToLoad.name, transition, startDelay);
     }
 }
