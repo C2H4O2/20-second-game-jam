@@ -4,7 +4,8 @@ public class DifficultyManager : MonoBehaviour
 {
     private bool Difficulty;
     [SerializeField] bool forceDifficulty;
-    [SerializeField] private GameObject[] spatulaGameobjects;
+    [SerializeField] private GameObject[] hardGameObjects;
+    [SerializeField] private GameObject[] easyGameObjects;
 
     private void Awake()
     {
@@ -29,10 +30,26 @@ public class DifficultyManager : MonoBehaviour
     {
         if (!Difficulty)
         {
-            for (int i = 1; i < spatulaGameobjects.Length; i++)
-            {
-                spatulaGameobjects[i].SetActive(false); 
-            }
+            EnableObjects(easyGameObjects);
+            DisableObjects(hardGameObjects);
+        }
+        else if(Difficulty) {
+            EnableObjects(hardGameObjects);
+            DisableObjects(easyGameObjects);
+        }
+    }
+
+    private void EnableObjects(GameObject[] gameObjects) {
+        foreach (var gameObject in gameObjects)
+        {
+            gameObject.SetActive(true);
+        }
+    }
+
+    private void DisableObjects(GameObject[] gameObjects) {
+        foreach (var gameObject in gameObjects)
+        {
+            gameObject.SetActive(false);
         }
     }
 }

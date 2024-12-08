@@ -297,8 +297,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -19, y: -130}
-  m_SizeDelta: {x: 555.32, y: 50}
+  m_AnchoredPosition: {x: -6, y: -130}
+  m_SizeDelta: {x: 569.9, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &385677492
 MonoBehaviour:
@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textLabel: {fileID: 385677493}
-  dialogueObject: {fileID: 11400000, guid: 6220a87d11b80c248b76045d3cde486e, type: 2}
+  dialogueObject: {fileID: 11400000, guid: cd329e98daa4a48429c1ba9a10d5e060, type: 2}
   startOfDialogue: 1
   completedDialogueObject:
     m_PersistentCalls:
@@ -350,7 +350,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hey, not every egg can be eggcelent
+  m_text: 'Cooked to Perfection! Good Work.
+
+
+    Looks eggs-travagant!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -415,7 +418,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -43.432983, w: 0}
+  m_margin: {x: 0, y: 0, z: 1.7369995, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -465,7 +468,7 @@ GameObject:
   - component: {fileID: 1157220709}
   - component: {fileID: 1157220708}
   m_Layer: 5
-  m_Name: Scrambled Egg image
+  m_Name: Sunny Side up Egg Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -480,15 +483,15 @@ RectTransform:
   m_GameObject: {fileID: 1157220706}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8999999, y: 0.8999999, z: 0.8999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 197407691}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 161}
-  m_SizeDelta: {x: 672, y: 509}
+  m_AnchoredPosition: {x: 0, y: 170.4}
+  m_SizeDelta: {x: 1148, y: 1070}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1157220708
 MonoBehaviour:
@@ -510,7 +513,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7910142720096bd43bfe6c070c2e6343, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5cd9a15482679f54e9624138fd264995, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

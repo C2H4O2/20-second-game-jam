@@ -8,5 +8,9 @@ public class SaltMeter : MonoBehaviour
     public void ChangeSliderValue(int num) {
         slider.value = num;
     }
+
+    public bool isSaltMeterEnough() {
+        return slider.value >= slider.maxValue - 1;
+    }
     
 }

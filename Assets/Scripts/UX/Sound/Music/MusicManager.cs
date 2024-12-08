@@ -16,7 +16,7 @@ public class MusicManager : MonoBehaviour
     
     private AudioSource audioSource;
     private List<Song> remainingSongs;
-    private static MusicManager instance;
+    public static MusicManager instance;
     private Coroutine fadeCoroutine;
     private bool paused;
 
