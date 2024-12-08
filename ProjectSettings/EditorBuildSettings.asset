@@ -6,17 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main Scene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
     path: Assets/Scenes/Menu/MainMenu.unity
     guid: 97e048d882dd81f4db21ed479b14a275
   - enabled: 1
-    path: Assets/Scenes/Ethan Scene 5.unity
-    guid: 40f12daf5b540d94daa3fb45ba3fe641
+    path: Assets/Scenes/Main Scene.unity
+    guid: 1f53d42d339cecb4594de66fd35a6723
   - enabled: 1
-    path: Assets/Scenes/Earl Scene 5.unity
-    guid: 9d0b7fdab26c6b648b79ea688864542d
+    path: Assets/Scenes/EndScenes/Lose Scene Salty.unity
+    guid: 739902d9497b39c4ea4a777670eafe07
+  - enabled: 1
+    path: Assets/Scenes/EndScenes/Lose Scene Scrambled.unity
+    guid: deb23a68dfeacda4cb12adbd2c06575d
+  - enabled: 1
+    path: Assets/Scenes/EndScenes/Win Scene.unity
+    guid: c562d811e77d1014bb3ebf1655a6ecf1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
