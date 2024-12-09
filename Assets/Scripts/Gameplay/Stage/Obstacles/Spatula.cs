@@ -12,6 +12,8 @@ public class Spatula : MonoBehaviour
     private bool splatulaCanMove;
 
     public bool SplatulaCanMove { get => splatulaCanMove; set => splatulaCanMove = value; }
+    public float FollowSpeed { get => followSpeed; set => followSpeed = value; }
+    public float FollowSmoothness { get => followSmoothness; set => followSmoothness = value; }
 
     private void Awake()
     {
@@ -39,8 +41,8 @@ public class Spatula : MonoBehaviour
         Vector2 directionToEgg = (egg.transform.position - transform.position).normalized;
         
         // Calculate the new velocity towards the player with smoothing applied
-        Vector2 targetVelocity = directionToEgg * followSpeed;
-        rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, followSmoothness);
+        Vector2 targetVelocity = directionToEgg * FollowSpeed;
+        rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, FollowSmoothness);
     }
 
     public void ResetVelocity() {

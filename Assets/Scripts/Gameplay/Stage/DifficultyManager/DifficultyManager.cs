@@ -7,6 +7,10 @@ public class DifficultyManager : MonoBehaviour
     [SerializeField] private GameObject[] hardGameObjects;
     [SerializeField] private GameObject[] easyGameObjects;
 
+    [SerializeField] private float hardSpeed;
+
+    [SerializeField] private float easySpeed;
+
     private void Awake()
     {
         Difficulty = GetDifficulty("difficulty");
@@ -32,24 +36,41 @@ public class DifficultyManager : MonoBehaviour
         {
             EnableObjects(easyGameObjects);
             DisableObjects(hardGameObjects);
+            SetFollowSpeed(easySpeed, easyGameObjects); // Set FollowSpeed to 15 for easyGameObjects
         }
-        else if(Difficulty) {
+        else
+        {
             EnableObjects(hardGameObjects);
             DisableObjects(easyGameObjects);
+            SetFollowSpeed(hardSpeed, hardGameObjects); // Set FollowSpeed to 10 for hardGameObjects
         }
     }
 
-    private void EnableObjects(GameObject[] gameObjects) {
+    private void EnableObjects(GameObject[] gameObjects)
+    {
         foreach (var gameObject in gameObjects)
         {
             gameObject.SetActive(true);
         }
     }
 
-    private void DisableObjects(GameObject[] gameObjects) {
+    private void DisableObjects(GameObject[] gameObjects)
+    {
         foreach (var gameObject in gameObjects)
         {
             gameObject.SetActive(false);
+        }
+    }
+
+    private void SetFollowSpeed(float speed, GameObject[] gameObjects)
+    {
+        foreach (GameObject gameObject in gameObjects)
+        {
+            Spatula spatula = gameObject.GetComponent<Spatula>();
+            if (spatula != null)
+            {
+                spatula.FollowSpeed = speed;
+            }
         }
     }
 }
